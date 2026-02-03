@@ -9,16 +9,16 @@ public:
             } else {
                 if (st.empty()) return false;
 
-                char top = st.top();
-                st.pop();
-
-                if ((c == ')' && top != '(') ||
-                    (c == '}' && top != '{') ||
-                    (c == ']' && top != '[')) {
+                if ((c == ')' && st.top() == '(') ||
+                    (c == '}' && st.top() == '{') ||
+                    (c == ']' && st.top() == '[')) {
+                    st.pop();
+                }else {
                     return false;
                 }
             }
         }
-        return st.empty();
+        if(st.size()==0)return true;
+        else return false ;
     }
 };
