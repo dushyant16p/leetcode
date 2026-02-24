@@ -3,21 +3,22 @@ public:
     ListNode* middleNode(ListNode* head) {
         
         ListNode* temp = head;
-        vector<int> store;
 
-        while(temp != NULL){
-            store.push_back(temp->val);
-            temp = temp->next;
+        int count=0;
+        while(temp!=NULL){
+            count++;
+            temp=temp->next;
         }
+        int mid=count/2;
+        
+        ListNode*remp=head;
 
-        int i = 0;
-        ListNode* remp = head;
-
-        while(i < store.size()/2){
-            remp = remp->next;
-            i++;
+        while(mid!=0){
+            remp=remp->next;
+            mid--;
         }
 
         return remp;
+        
     }
 };
