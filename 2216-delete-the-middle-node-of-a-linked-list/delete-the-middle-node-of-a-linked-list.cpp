@@ -20,15 +20,16 @@ public:
         if(count==1){
             return NULL;
         }
+        ListNode*prev=head;
+        ListNode*agge=head;
         int mid=count/2;
-        ListNode*remp=head;
-
-        for (int i=1;i<mid;i++){
-            remp=remp->next;
+        while(mid!=0){
+            prev=agge;
+            agge=agge->next;
+            mid--;
         }
-        remp->next=remp->next->next;
-
+        prev->next=agge->next;
+        delete(agge);
         return head;
     }
-
 };
